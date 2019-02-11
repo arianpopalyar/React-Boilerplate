@@ -11,11 +11,22 @@
 <body>
 
     <div id="container"></div>
-
     <script type="text/babel">
-        ReactDOM.render(
-            <h2>Welcome to React!</h2>,
-            document.getElementById('container')
+    var Movie = React.createClass({
+        render:function(){
+            return(
+                <div>
+                    <h1>File name: {this.props.title}</h1>
+                    <h2>Genre: {this.props.genre}</h2>
+                </div>
+            );
+        }
+    });
+
+    ReactDOM.render(<div><Movie title="Speed" genre="action"/>
+        <Movie title="Avatar" genre="action"/>
+        <Movie title="Speed2" genre="action"/>
+        </div>, document.getElementById('container')
         );
     </script>
 
