@@ -7,27 +7,38 @@
     <script src="../../js/react.min.js"></script>
     <script src="../../js/react-dom.min.js"></script>
     <script src="../../js/browser.min.js"></script>
+    <link rel="stylesheet" href="../../css/main.css">
 </head>
 <body>
 
     <div id="container"></div>
+
     <script type="text/babel">
-    var Movie = React.createClass({
-        render:function(){
+    var Comment = React.createClass({
+        edit: function() {
+            alert('Edit comment');
+        },
+        remove: function(){
+
+        },
+        render: function(){
             return(
-                <div>
-                    <h1>File name: {this.props.title}</h1>
-                    <h2>Genre: {this.props.genre}</h2>
+                <div className="commentContainer">
+                    <div className="commentText">{this.props.children}</div>
+                    <button onClick={this.edit} className="button-primary">Edit</button>
+                    <button onClick={this.remove} className="button-danger">Remove</button>
                 </div>
             );
         }
     });
 
-    ReactDOM.render(<div><Movie title="Speed" genre="action"/>
-        <Movie title="Avatar" genre="action"/>
-        <Movie title="Speed2" genre="action"/>
-        </div>, document.getElementById('container')
-        );
+    ReactDOM.render(
+        <div className="board">
+            <Comment>Hey now</Comment>
+            <Comment>Hey My name is arian</Comment>
+            <Comment>Go shopping</Comment>
+        </div>, 
+        document.getElementById('container'));
     </script>
 
 </body>
